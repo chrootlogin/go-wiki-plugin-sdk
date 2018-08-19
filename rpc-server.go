@@ -12,10 +12,10 @@ type goWikiPluginServer struct {
 
 // Server implmentation of go-plugin.plugin.Plugin.Server
 func (p *GoWikiPlugin) Server(b *plugin.MuxBroker) (interface{}, error) {
-	if p.F == nil {
-		return nil, errors.New("Greeter interface not implemeted")
+	if p.Impl == nil {
+		return nil, errors.New("GoWikiPlugin interface not implemeted")
 	}
-	return &goWikiPluginServer{Broker: b, IGoWikiPlugin: p.F()}, nil
+	return &goWikiPluginServer{Broker: b, IGoWikiPlugin: p.Impl()}, nil
 }
 
 ////////////////////////////////////////////////////////////////////////////////
