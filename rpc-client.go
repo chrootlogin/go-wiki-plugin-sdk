@@ -52,9 +52,11 @@ func (p *goWikiPluginClient) Routes() []string {
 	return resp
 }
 
-func (p *goWikiPluginClient) HandleRoute() string {
+func (p *goWikiPluginClient) HandleRoute(route string) string {
 	var resp string
-	err := p.Client.Call("Plugin.HandleRoute", new(interface{}), &resp)
+	err := p.Client.Call("Plugin.HandleRoute", map[string]string{
+		"route": route,
+	}, &resp)
 	if err != nil {
 		log.Fatal(err)
 		// TODO: log.Fatal() will exit the process automatically.
