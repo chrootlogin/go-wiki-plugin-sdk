@@ -41,3 +41,8 @@ func (p *goWikiPluginServer) Routes(nothing interface{}, result *[]string) error
 	*result = p.IGoWikiPlugin.Routes()
 	return nil
 }
+
+func (p *goWikiPluginServer) HandleRoute(nothing interface{}, result *[]string) error {
+	*result = p.IGoWikiPlugin.HandleRoute()
+	return nil
+}
