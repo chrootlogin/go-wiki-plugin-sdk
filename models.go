@@ -5,7 +5,7 @@ type IGoWikiPlugin interface {
 	Name() string
 	Version() string
 	Routes() []string
-	HandleRoute() []string
+	HandleRoute() string
 }
 
 // Greeter is a structure that has a reference to the interface
