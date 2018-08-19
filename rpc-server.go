@@ -15,7 +15,7 @@ func (p *GoWikiPlugin) Server(b *plugin.MuxBroker) (interface{}, error) {
 	if p.Impl == nil {
 		return nil, errors.New("GoWikiPlugin interface not implemeted")
 	}
-	return &goWikiPluginServer{Broker: b, IGoWikiPlugin: p.Impl()}, nil
+	return &goWikiPluginServer{Broker: b, IGoWikiPlugin: p.Impl}, nil
 }
 
 ////////////////////////////////////////////////////////////////////////////////
