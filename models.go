@@ -4,7 +4,6 @@ package module
 type IGoWikiPlugin interface {
 	Name() string
 	Version() string
-	StartTime() int64
 }
 
 // Greeter is a structure that has a reference to the interface
