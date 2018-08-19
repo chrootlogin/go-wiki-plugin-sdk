@@ -3,7 +3,6 @@ package module
 import (
 	"github.com/hashicorp/go-plugin"
 	"errors"
-	"fmt"
 )
 
 type goWikiPluginServer struct {
@@ -33,9 +32,10 @@ func (p *goWikiPluginServer) Routes(nothing interface{}, result *[]string) error
 	return nil
 }
 
-func (p *goWikiPluginServer) HandleRoute(args map[string]string, result *string) error {
-	fmt.Println(args)
+func (p *goWikiPluginServer) HandleRoute(args map[string]interface{}, result *string) error {
+	route := args["route"].(string)
+	request := args["request"].(HTTPRequest)
 
-	*result = p.IGoWikiPlugin.HandleRoute(args["route"])
+	*result = p.IGoWikiPlugin.HandleRoute(route, request)
 	return nil
 }
