@@ -36,6 +36,6 @@ func (p *goWikiPluginServer) Routes(nothing interface{}, result *[]string) error
 func (p *goWikiPluginServer) HandleRoute(args map[string]string, result *string) error {
 	fmt.Println(args)
 
-	*result = p.IGoWikiPlugin.HandleRoute("")
+	*result = p.IGoWikiPlugin.HandleRoute(args["route"])
 	return nil
 }
