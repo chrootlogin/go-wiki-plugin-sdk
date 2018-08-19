@@ -36,3 +36,8 @@ func (p *goWikiPluginServer) Version(nothing interface{}, result *string) error 
 	*result = p.IGoWikiPlugin.Version()
 	return nil
 }
+
+func (p *goWikiPluginServer) Routes(nothing interface{}, result *[]string) error {
+	*result = p.IGoWikiPlugin.Routes()
+	return nil
+}

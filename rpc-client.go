@@ -39,3 +39,15 @@ func (p *goWikiPluginClient) Version() string {
 	// log.Println("goplugin-client.Version():", resp)
 	return resp
 }
+
+func (p *goWikiPluginClient) Routes() []string {
+	var resp []string
+	err := p.Client.Call("Plugin.Routes", new(interface{}), &resp)
+	if err != nil {
+		log.Fatal(err)
+		// TODO: log.Fatal() will exit the process automatically.
+		// Need to figure out what the proper thing to do is
+	}
+	// log.Println("goplugin-client.Version():", resp)
+	return resp
+}
