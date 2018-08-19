@@ -9,5 +9,5 @@ type IGoWikiPlugin interface {
 
 // Greeter is a structure that has a reference to the interface
 type GoWikiPlugin struct {
-	Impl func() IGoWikiPlugin
+	Impl IGoWikiPlugin
 }

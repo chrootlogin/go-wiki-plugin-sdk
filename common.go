@@ -10,6 +10,10 @@ var HandshakeConfig = plugin.HandshakeConfig{
 	MagicCookieValue: "gowiki",
 }
 
-var PluginMap = map[string]plugin.Plugin{
-	"extension": &GoWikiPlugin{},
+func PluginMap(wikiPlugin IGoWikiPlugin) map[string]plugin.Plugin {
+	return map[string]plugin.Plugin{
+		"extension": &GoWikiPlugin{
+			Impl: wikiPlugin,
+		},
+	}
 }
