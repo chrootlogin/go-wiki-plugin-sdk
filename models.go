@@ -29,4 +29,5 @@ type GoWikiPluginConnector struct {
 
 func init() {
 	gob.RegisterName("HTTPRequest", HTTPRequest{})
+	gob.RegisterName("HTTPResponse", HTTPResponse{})
 }
