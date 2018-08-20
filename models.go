@@ -9,7 +9,8 @@ type IGoWikiPlugin interface {
 	Init()
 	Name() string
 	Version() string
-	HandleRoute(string, HTTPRequest) string
+	Routes() []string
+	HandleRoute (string, HTTPRequest) string
 }
 
 type HTTPRequest struct {

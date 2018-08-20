@@ -33,6 +33,11 @@ func (p *goWikiPluginServer) Version(args interface{}, result *string) error {
 	return nil
 }
 
+func (p *goWikiPluginServer) Routes(args interface{}, result *[]string) error {
+	*result = p.IGoWikiPlugin.Routes()
+	return nil
+}
+
 func (p *goWikiPluginServer) HandleRoute(args map[string]interface{}, result *string) error {
 	route := args["route"].(string)
 	request := args["request"].(HTTPRequest)

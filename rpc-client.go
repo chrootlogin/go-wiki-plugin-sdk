@@ -28,10 +28,7 @@ func (p *goWikiPluginClient) Name() string {
 	err := p.Client.Call("Plugin.Name", new(interface{}), &resp)
 	if err != nil {
 		log.Fatal(err)
-		// TODO: log.Fatal() will exit the process automatically.
-		// Need to figure out what the proper thing to do is
 	}
-	// log.Println("goplugin-client.Name():", resp)
 	return resp
 }
 
@@ -40,10 +37,16 @@ func (p *goWikiPluginClient) Version() string {
 	err := p.Client.Call("Plugin.Version", new(interface{}), &resp)
 	if err != nil {
 		log.Fatal(err)
-		// TODO: log.Fatal() will exit the process automatically.
-		// Need to figure out what the proper thing to do is
 	}
-	// log.Println("goplugin-client.Version():", resp)
+	return resp
+}
+
+func (p *goWikiPluginClient) Routes() []string {
+	var resp []string
+	err := p.Client.Call("Plugin.Routes", new(interface{}), &resp)
+	if err != nil {
+		log.Fatal(err)
+	}
 	return resp
 }
 
@@ -55,9 +58,6 @@ func (p *goWikiPluginClient) HandleRoute(route string, request HTTPRequest) stri
 	}, &resp)
 	if err != nil {
 		log.Fatal(err)
-		// TODO: log.Fatal() will exit the process automatically.
-		// Need to figure out what the proper thing to do is
 	}
-	// log.Println("goplugin-client.Version():", resp)
 	return resp
 }
