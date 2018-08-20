@@ -5,6 +5,9 @@ type GoWikiPlugin struct {
 }
 
 func (r GoWikiPlugin) RegisterRoute(route string, handler func (HTTPRequest) string) {
+	if r.routes == nil {
+		r.routes = make(map[string]func (request HTTPRequest) string)
+	}
 	r.routes[route] = handler
 }
 
