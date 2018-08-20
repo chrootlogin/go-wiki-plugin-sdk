@@ -4,7 +4,7 @@ type GoWikiPlugin struct {
 	routes map[string]func (request HTTPRequest) string
 }
 
-func (r GoWikiPlugin) registerRoute(route string, handler func (HTTPRequest) string) {
+func (r GoWikiPlugin) RegisterRoute(route string, handler func (HTTPRequest) string) {
 	r.routes[route] = handler
 }
 
