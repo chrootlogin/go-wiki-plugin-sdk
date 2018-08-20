@@ -3,9 +3,7 @@ package module
 import (
 	"github.com/hashicorp/go-plugin"
 	"errors"
-	"net/url"
-	"log"
-)
+		)
 
 type goWikiPluginServer struct {
 	Broker   	  *plugin.MuxBroker
@@ -36,17 +34,8 @@ func (p *goWikiPluginServer) Routes(nothing interface{}, result *[]string) error
 
 func (p *goWikiPluginServer) HandleRoute(args map[string]interface{}, result *string) error {
 	route := args["route"].(string)
-	request := args["request"].(map[string]string)
+	request := args["request"].(HTTPRequest)
 
-	reqUrl, err := url.Parse(request["url"])
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	httpRequest := HTTPRequest{
-		URL: reqUrl,
-	}
-
-	*result = p.IGoWikiPlugin.HandleRoute(route, httpRequest)
+	*result = p.IGoWikiPlugin.HandleRoute(route, request)
 	return nil
 }

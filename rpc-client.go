@@ -56,9 +56,7 @@ func (p *goWikiPluginClient) HandleRoute(route string, request HTTPRequest) stri
 	var resp string
 	err := p.Client.Call("Plugin.HandleRoute", map[string]interface{}{
 		"route": route,
-		"request": map[string]string {
-			"url": request.URL.String(),
-		},
+		"request": request,
 	}, &resp)
 	if err != nil {
 		log.Fatal(err)

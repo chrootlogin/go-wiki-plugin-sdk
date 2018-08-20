@@ -22,4 +22,5 @@ type GoWikiPlugin struct {
 
 func init() {
 	gob.Register(map[string]string{})
+	gob.Register(HTTPRequest{})
 }
