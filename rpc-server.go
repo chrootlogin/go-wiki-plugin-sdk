@@ -38,7 +38,7 @@ func (p *goWikiPluginServer) Routes(args interface{}, result *[]string) error {
 	return nil
 }
 
-func (p *goWikiPluginServer) HandleRoute(args map[string]interface{}, result *string) error {
+func (p *goWikiPluginServer) HandleRoute(args map[string]interface{}, result *HTTPResponse) error {
 	route := args["route"].(string)
 	request := args["request"].(HTTPRequest)
 

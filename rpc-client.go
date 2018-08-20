@@ -50,8 +50,8 @@ func (p *goWikiPluginClient) Routes() []string {
 	return resp
 }
 
-func (p *goWikiPluginClient) HandleRoute(route string, request HTTPRequest) string {
-	var resp string
+func (p *goWikiPluginClient) HandleRoute(route string, request HTTPRequest) HTTPResponse {
+	var resp HTTPResponse
 	err := p.Client.Call("Plugin.HandleRoute", map[string]interface{}{
 		"route": route,
 		"request": request,

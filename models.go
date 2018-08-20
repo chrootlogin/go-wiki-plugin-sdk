@@ -10,7 +10,7 @@ type IGoWikiPlugin interface {
 	Name() string
 	Version() string
 	Routes() []string
-	HandleRoute (string, HTTPRequest) string
+	HandleRoute (string, HTTPRequest) HTTPResponse
 }
 
 type HTTPRequest struct {
