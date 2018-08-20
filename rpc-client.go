@@ -12,7 +12,7 @@ type goWikiPluginClient struct {
 	Client *rpc.Client
 }
 
-func (p *GoWikiPlugin) Client(b *plugin.MuxBroker, c *rpc.Client) (interface{}, error) {
+func (p *GoWikiPluginConnector) Client(b *plugin.MuxBroker, c *rpc.Client) (interface{}, error) {
 	return &goWikiPluginClient{Broker: b, Client: c}, nil
 }
 

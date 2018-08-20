@@ -16,11 +16,10 @@ type HTTPRequest struct {
 	URL *url.URL
 }
 
-type GoWikiPlugin struct {
+type GoWikiPluginConnector struct {
 	Impl IGoWikiPlugin
 }
 
 func init() {
-	gob.Register(map[string]string{})
 	gob.RegisterName("HTTPRequest", HTTPRequest{})
 }

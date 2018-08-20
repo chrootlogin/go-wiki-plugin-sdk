@@ -10,7 +10,7 @@ type goWikiPluginServer struct {
 	IGoWikiPlugin IGoWikiPlugin
 }
 
-func (p *GoWikiPlugin) Server(b *plugin.MuxBroker) (interface{}, error) {
+func (p *GoWikiPluginConnector) Server(b *plugin.MuxBroker) (interface{}, error) {
 	if p.Impl == nil {
 		return nil, errors.New("GoWikiPlugin interface not implemeted")
 	}

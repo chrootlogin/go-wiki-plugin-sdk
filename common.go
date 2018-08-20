@@ -12,7 +12,7 @@ var HandshakeConfig = plugin.HandshakeConfig{
 
 func PluginMap(wikiPlugin IGoWikiPlugin) map[string]plugin.Plugin {
 	return map[string]plugin.Plugin{
-		"extension": &GoWikiPlugin{
+		"extension": &GoWikiPluginConnector{
 			Impl: wikiPlugin,
 		},
 	}
