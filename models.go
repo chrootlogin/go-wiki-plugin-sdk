@@ -1,6 +1,9 @@
 package module
 
-import "net/url"
+import (
+	"net/url"
+	"encoding/gob"
+)
 
 type IGoWikiPlugin interface {
 	Name() string
@@ -15,4 +18,8 @@ type HTTPRequest struct {
 
 type GoWikiPlugin struct {
 	Impl IGoWikiPlugin
+}
+
+func init() {
+	gob.Register(map[string]string{})
 }
