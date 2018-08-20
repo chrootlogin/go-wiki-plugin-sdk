@@ -17,7 +17,7 @@ func (p *GoWikiPluginConnector) Server(b *plugin.MuxBroker) (interface{}, error)
 	return &goWikiPluginServer{Broker: b, IGoWikiPlugin: p.Impl}, nil
 }
 
-func (p *goWikiPluginServer) Init(args interface{}, result interface{}) error {
+func (p *goWikiPluginServer) Init(args interface{}, result *interface{}) error {
 	p.IGoWikiPlugin.Init()
 
 	return nil
