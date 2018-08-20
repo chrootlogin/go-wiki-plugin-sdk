@@ -10,7 +10,7 @@ type IGoWikiPlugin interface {
 }
 
 type HTTPRequest struct {
-	URL url.URL
+	URL *url.URL
 }
 
 type GoWikiPlugin struct {
