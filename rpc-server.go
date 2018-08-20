@@ -17,18 +17,19 @@ func (p *GoWikiPluginConnector) Server(b *plugin.MuxBroker) (interface{}, error)
 	return &goWikiPluginServer{Broker: b, IGoWikiPlugin: p.Impl}, nil
 }
 
-func (p *goWikiPluginServer) Name(nothing interface{}, result *string) error {
+func (p *goWikiPluginServer) Init(args interface{}, result *[]string) error {
+	p.IGoWikiPlugin.Init()
+
+	return nil
+}
+
+func (p *goWikiPluginServer) Name(args interface{}, result *string) error {
 	*result = p.IGoWikiPlugin.Name()
 	return nil
 }
 
-func (p *goWikiPluginServer) Version(nothing interface{}, result *string) error {
+func (p *goWikiPluginServer) Version(args interface{}, result *string) error {
 	*result = p.IGoWikiPlugin.Version()
-	return nil
-}
-
-func (p *goWikiPluginServer) Routes(nothing interface{}, result *[]string) error {
-	*result = p.IGoWikiPlugin.Routes()
 	return nil
 }
 

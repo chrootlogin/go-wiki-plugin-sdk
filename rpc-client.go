@@ -16,6 +16,13 @@ func (p *GoWikiPluginConnector) Client(b *plugin.MuxBroker, c *rpc.Client) (inte
 	return &goWikiPluginClient{Broker: b, Client: c}, nil
 }
 
+func (p *goWikiPluginClient) Init() {
+	err := p.Client.Call("Plugin.Init", new(interface{}), new(interface{}))
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
 func (p *goWikiPluginClient) Name() string {
 	var resp string
 	err := p.Client.Call("Plugin.Name", new(interface{}), &resp)
@@ -31,18 +38,6 @@ func (p *goWikiPluginClient) Name() string {
 func (p *goWikiPluginClient) Version() string {
 	var resp string
 	err := p.Client.Call("Plugin.Version", new(interface{}), &resp)
-	if err != nil {
-		log.Fatal(err)
-		// TODO: log.Fatal() will exit the process automatically.
-		// Need to figure out what the proper thing to do is
-	}
-	// log.Println("goplugin-client.Version():", resp)
-	return resp
-}
-
-func (p *goWikiPluginClient) Routes() []string {
-	var resp []string
-	err := p.Client.Call("Plugin.Routes", new(interface{}), &resp)
 	if err != nil {
 		log.Fatal(err)
 		// TODO: log.Fatal() will exit the process automatically.

@@ -6,9 +6,9 @@ import (
 )
 
 type IGoWikiPlugin interface {
+	Init()
 	Name() string
 	Version() string
-	Routes() []string
 	HandleRoute(string, HTTPRequest) string
 }
 
