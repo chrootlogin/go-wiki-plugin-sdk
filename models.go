@@ -17,6 +17,12 @@ type HTTPRequest struct {
 	URL *url.URL
 }
 
+type HTTPResponse struct {
+	Status int
+	Headers map[string]string
+	Body string
+}
+
 type GoWikiPluginConnector struct {
 	Impl IGoWikiPlugin
 }
